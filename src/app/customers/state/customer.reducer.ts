@@ -1,4 +1,6 @@
 import * as customerActions from './customer.actions';
+import { createFeatureSelector, createSelector } from '@ngrx/store';
+
 import { Customer } from '../customer.model';
 import * as fromRoot from '../../state/app-state';
 
@@ -18,7 +20,7 @@ export const inicialState: CustomerState = {
   loading: false,
   loaded: false,
   error: ''
-}
+};
 
 export function customerReducer(state = inicialState, action: customerActions.Actions): CustomerState {
   switch (action.type) {
@@ -49,5 +51,30 @@ export function customerReducer(state = inicialState, action: customerActions.Ac
       return state;
     }
   }
-
 }
+
+const getCustomerFeatureState = createFeatureSelector<CustomerState>(
+  'customers'
+);
+
+export const getCustomers = createSelector(
+  getCustomerFeatureState,
+  (state: CustomerState) => state.customers
+);
+
+export const getCustomersLoading = createSelector(
+  getCustomerFeatureState,
+  (state: CustomerState) => state.loading
+);
+
+export const getCustomersLoaded = createSelector(
+  getCustomerFeatureState,
+  (state: CustomerState) => state.loaded
+);
+
+export const getError = createSelector(
+  getCustomerFeatureState,
+  (state: CustomerState) => state.error
+);
+
+

@@ -33,7 +33,7 @@ export const inicialState = customerAdapter.getInitialState(defaultCustomer);
 export function customerReducer(state = inicialState, action: customerActions.Actions): CustomerState {
   switch (action.type) {
     case customerActions.CustomerActionTypes.LOAD_CUSTOMERS_SUCCESS: {
-      return customerAdapter.addAll(action.payload, {
+      return customerAdapter.setAll(action.payload, {
         ...state,
         loading: false,
         loaded: true

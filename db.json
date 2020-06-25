@@ -4,13 +4,21 @@
       "name": "John Doe",
       "phone": "9378463463474",
       "address": "123 Sun Street",
-      "id": 1
+      "id": 1,
+      "membership": "Basic"
     },
     {
       "name": "Mary Johnson",
       "phone": "808937482734",
       "address": "893 Main Voulevard",
       "id": 2
+    },
+    {
+      "name": "Claudio Marcos",
+      "phone": "99763771",
+      "address": "Qd 203 Lt 3 Bloco B",
+      "membership": "Platinum",
+      "id": 3
     }
   ]
 }
